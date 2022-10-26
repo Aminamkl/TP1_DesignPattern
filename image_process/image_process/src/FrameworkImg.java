@@ -6,23 +6,13 @@ import filter.IFilter;
 
 public class FrameworkImg {
     private IFilter iFilter;
-    private Compresser iCompresser;
+    private Compresser Compresser;
 
     public FrameworkImg() {
-        this.iFilter = new FilterImpl1();
-        this.iCompresser = new CompresserImpl1();
     }
 
-    public int[] appliquerFiltre(String filterName, int[] data){
-        if(filterName.equals("Filter1")){
-            iFilter=new FilterImpl1();
-            data=iFilter.filter(data);
-        }
-        if(filterName.equals("Filter2")){
-            iFilter=new FilterImpl2();
-            data=iFilter.filter(data);
-        }
-        return data;
+    public int[] appliquerFiltre(int[] data){
+        return iFilter.filter(data);
     }
 
     public void showImage(int []image)
@@ -40,11 +30,11 @@ public class FrameworkImg {
         this.iFilter = iFilter;
     }
 
-    public Compresser getiCompresser() {
-        return iCompresser;
+    public Compresser getCompresser() {
+        return Compresser;
     }
 
-    public void setiCompresser(Compresser iCompresser) {
-        this.iCompresser = iCompresser;
+    public void setCompresser(Compresser compresser) {
+        this.Compresser = compresser;
     }
 }

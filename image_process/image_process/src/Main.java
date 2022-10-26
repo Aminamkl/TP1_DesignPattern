@@ -1,6 +1,6 @@
 import Compresser.CompresserImpl1;
 import Compresser.CompresserImpl2;
-import Compresser.ICompresser;
+import Compresser.Compresser;
 import filter.FilterImpl1;
 import filter.FilterImpl2;
 
@@ -18,20 +18,21 @@ public class Main {
 
         FrameworkImg framework=new FrameworkImg();
 
-
-        Filterdimage=framework.appliquerFiltre("Filter1",myimage);
+        framework.setiFilter(new FilterImpl1());
+        Filterdimage=framework.appliquerFiltre(myimage);
         framework.showImage(Filterdimage);
 
-        Filterdimage=framework.appliquerFiltre("Filter2",myimage);
+        framework.setiFilter(new FilterImpl2());
+        Filterdimage=framework.appliquerFiltre(myimage);
         framework.showImage(Filterdimage);
 
-        framework.setiCompresser(new CompresserImpl1());
-        Compressedimage=framework.getiCompresser().compresser(myimage);
+        framework.setCompresser(new CompresserImpl1());
+        Compressedimage=framework.getCompresser().compresser(myimage);
         framework.showImage(Compressedimage);
 
 
-        framework.setiCompresser(new CompresserImpl2());
-        Compressedimage=framework.getiCompresser().compresser(myimage);
+        framework.setCompresser(new CompresserImpl2());
+        Compressedimage=framework.getCompresser().compresser(myimage);
         framework.showImage(Compressedimage);
 
 
